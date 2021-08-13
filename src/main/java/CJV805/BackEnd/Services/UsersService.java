@@ -3,12 +3,14 @@ package CJV805.BackEnd.Services;
 import CJV805.BackEnd.Models.UserModel;
 import CJV805.BackEnd.Models.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +42,12 @@ public class UsersService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        UserModel foundUser = repository.findByUsername(username);
+
+        String userN = foundUser.getUsername();
+        String passW = foundUser.getPassword();
+        return new User(userN, passW, new ArrayList<>());
     }
 }
