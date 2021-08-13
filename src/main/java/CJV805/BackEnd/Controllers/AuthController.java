@@ -25,7 +25,7 @@ public class AuthController {
     public ResponseEntity login(@RequestBody UserModel user){
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
-            var response = new CustomizedResponse("Login Successful!", null);
+            CustomizedResponse response = new CustomizedResponse("Login Successful!", null);
             return new ResponseEntity(response, HttpStatus.OK);
         } catch(BadCredentialsException ex){
             var response = new CustomizedResponse("Wrong username or password! Please try again!", null);
