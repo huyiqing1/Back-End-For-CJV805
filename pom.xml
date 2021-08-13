@@ -15,7 +15,6 @@
 	<name>Back-End</name>
 	<description>Back End for CJV805 Project</description>
 	<properties>
-		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
