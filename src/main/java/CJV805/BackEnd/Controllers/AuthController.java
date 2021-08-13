@@ -28,7 +28,7 @@ public class AuthController {
             CustomizedResponse response = new CustomizedResponse("Login Successful!", null);
             return new ResponseEntity(response, HttpStatus.OK);
         } catch(BadCredentialsException ex){
-            var response = new CustomizedResponse("Wrong username or password! Please try again!", null);
+            CustomizedResponse response = new CustomizedResponse("Wrong username or password! Please try again!", null);
             return new ResponseEntity(response, HttpStatus.UNAUTHORIZED);
         }
     }
