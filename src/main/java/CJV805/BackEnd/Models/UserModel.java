@@ -2,7 +2,9 @@ package CJV805.BackEnd.Models;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("Users")
 public class UserModel {
 
     @Id

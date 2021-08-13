@@ -1,14 +1,10 @@
 package CJV805.BackEnd.Controllers;
 
-import CJV805.BackEnd.Models.TVs;
 import CJV805.BackEnd.Services.TVsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
