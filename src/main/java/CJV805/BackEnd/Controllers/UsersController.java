@@ -29,6 +29,8 @@ public class UsersController {
             MediaType.APPLICATION_JSON_VALUE
     })
     public void createUser(@RequestBody UserModel user){
+        String userEmail = user.getEmail();
+        user.setUsername(userEmail);
         service.addUser(user);
     }
 }
