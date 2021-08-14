@@ -6,6 +6,7 @@ public class CustomizedResponse<T> {
 
     private String message;
     private List<T> body;
+    private String _id;
 
 
     public CustomizedResponse()
