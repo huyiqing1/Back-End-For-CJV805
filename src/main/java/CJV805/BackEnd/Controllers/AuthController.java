@@ -25,6 +25,8 @@ public class AuthController {
             MediaType.APPLICATION_JSON_VALUE
     })
     public ResponseEntity login(@RequestBody UserModel user){
+        String email = user.getEmail();
+        user.setUsername(email);
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
             CustomizedResponse response = new CustomizedResponse("Login Successful!", null);
