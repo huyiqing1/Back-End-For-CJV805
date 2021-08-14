@@ -25,7 +25,7 @@ public class UsersService implements UserDetailsService {
 
     public UserModel addUser(UserModel user){
         UserModel u = repository.findByUsername(user.getUsername());
-        if(u!=null) {
+        if(u==null) {
             String encodedPassword = bcrypt.encode(user.getPassword());
             user.setPassword(encodedPassword);
 
