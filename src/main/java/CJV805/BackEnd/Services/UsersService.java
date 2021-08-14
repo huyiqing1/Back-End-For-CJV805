@@ -56,7 +56,7 @@ public class UsersService implements UserDetailsService {
     }
 
 
-    public Object getUserByEmail(String email) {
+    public UserModel getUserByEmail(String email) {
         return repository.findByUsername(email);
     }
 }
