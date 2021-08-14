@@ -24,13 +24,17 @@ public class UsersService implements UserDetailsService {
     private BCryptPasswordEncoder bcrypt;
 
     public UserModel addUser(UserModel user){
+        UserModel u = repository.findByUsername(user.getUsername());
+        if(u!=null) {
+            String encodedPassword = bcrypt.encode(user.getPassword());
+            user.setPassword(encodedPassword);
 
-        String encodedPassword = bcrypt.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+            UserModel insertedUser = repository.insert(user);
 
-        UserModel insertedUser = repository.insert(user);
-
-        return insertedUser;
+            return insertedUser;
+        } else{
+            return null;
+        }
     }
 
     public List<UserModel> getUsers(){
