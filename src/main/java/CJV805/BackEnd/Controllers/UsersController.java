@@ -31,7 +31,7 @@ public class UsersController {
     public ResponseEntity createUser(@RequestBody UserModel user){
         String userEmail = user.getEmail();
         user.setUsername(userEmail);
-        if(service.addUser(user)!=null){
+        if(service.addUser(user)==null){
             return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
         } else {
             return new ResponseEntity(HttpStatus.OK);
