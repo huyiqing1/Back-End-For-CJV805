@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class AuthController {
@@ -29,7 +31,7 @@ public class AuthController {
         user.setUsername(email);
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
-            CustomizedResponse response = new CustomizedResponse("Login Successful!", null);
+            CustomizedResponse response = new CustomizedResponse("Login Successful!", Collections.singletonList(user.get_id()));
             return new ResponseEntity(response, HttpStatus.OK);
         } catch(BadCredentialsException ex){
             CustomizedResponse response = new CustomizedResponse("Wrong username or password! Please try again!", null);
