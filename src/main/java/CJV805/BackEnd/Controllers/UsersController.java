@@ -25,11 +25,6 @@ public class UsersController {
         return new ResponseEntity(service.getUser(id), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{email}")
-    public ResponseEntity getUserByEmail(@PathVariable("email") String email){
-        return new ResponseEntity(service.getUserByEmail(email), HttpStatus.OK);
-    }
-
     @PostMapping(value = "/users", consumes = {
             MediaType.APPLICATION_JSON_VALUE
     })

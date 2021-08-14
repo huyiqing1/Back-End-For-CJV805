@@ -54,9 +54,4 @@ public class UsersService implements UserDetailsService {
         String passW = foundUser.getPassword();
         return new User(userN, passW, new ArrayList<>());
     }
-
-
-    public UserModel getUserByEmail(String email) {
-        return repository.findByUsername(email);
-    }
 }

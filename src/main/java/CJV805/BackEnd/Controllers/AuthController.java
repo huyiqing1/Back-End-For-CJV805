@@ -31,7 +31,7 @@ public class AuthController {
         user.setUsername(email);
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
-            CustomizedResponse response = new CustomizedResponse(user.get_id(), null);
+            CustomizedResponse response = new CustomizedResponse(user.getUsername(), null);
             return new ResponseEntity(response, HttpStatus.OK);
         } catch(BadCredentialsException ex){
             CustomizedResponse response = new CustomizedResponse("Wrong username or password! Please try again!", null);
